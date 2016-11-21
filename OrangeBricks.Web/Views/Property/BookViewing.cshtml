@@ -1,0 +1,40 @@
+﻿@model OrangeBricks.Web.Controllers.Property.ViewModels.BookViewingViewModel
+
+@{
+    ViewBag.Title = "BookViewing";
+}
+
+<h2>Book Viewing</h2>
+
+<p>When would you like to have a viewing for the <b> @Model.PropertyType</b> on <b>@Model.StreetName </b> ?</p>
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    @Html.Hidden("PropertyId", Model.PropertyId)
+    @Html.Hidden("VisitorId", Model.VisitorId)
+    <div class="form-horizontal">
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateV, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateV, new {htmlAttributes = new {@class = "date-picker" } })
+                @Html.ValidationMessageFor(model => model.DateV, "", new {@class = "text-danger"})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Book" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

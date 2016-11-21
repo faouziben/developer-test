@@ -6,7 +6,7 @@
     <title>@ViewBag.Title - Orange Bricks</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+    @Scripts.Render("~/Scripts/jquery-1.10.2.min.js")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -25,6 +25,11 @@
                     @if (Request.IsAuthenticated)
                     {
                         <li>@Html.ActionLink("Properties", "Index", "Property")</li>
+                        if (User.IsInRole("Buyer"))
+                        {
+                            <li>@Html.ActionLink("Offers", "OfferMade", "Offers")</li>
+                            <li>@Html.ActionLink("Viewings", "ViewingBooked", "Property")</li>
+                        }
                         if (User.IsInRole("Seller"))
                         {
                             <li>@Html.ActionLink("Create Listing", "Create", "Property")</li>
