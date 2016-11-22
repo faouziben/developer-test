@@ -1,3 +1,14 @@
+Deploy on : http://fazben-001-site1.htempurl.com/
+
+# Issues 
+	- Viewing :
+		-Add Time
+		-Add Validation of the seller
+		-Restriction on the date (exclude week-end and date in the past)
+		-Date should be updated when you book a viewing on the same property
+	- Offers :
+		-the offer should be updated when you make on offer on the same property
+
 ﻿# Refactoring Code :
 
  -  We need to use the Factory pattern to create the builder and Handler class, because at the moment the creation of these class 
