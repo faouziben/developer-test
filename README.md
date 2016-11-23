@@ -1,41 +1,39 @@
-# Purplebricks Developer Test
+Deploy on : http://fazben-001-site1.htempurl.com/
 
-The aim of this test is to give us an idea about how you approach the development and maintenance of web applications. You will work from a GitHub repository which contains an existing web application. The UI should be functional, but there is no expectation that you modify the brand theme. We are looking for a solution that shows how you build maintainable, scalable and secure software. The test is based on an overly simplified version of our business domain.
+# Issues 
+	- Viewing :
+		-Add Time
+		-Add Validation of the seller
+		-Restriction on the date (exclude week-end and date in the past)
+		-Date should be updated when you book a viewing on the same property
+	- Offers :
+		-the offer should be updated when you make on offer on the same property
 
-The existing web application supports two types of customer. Sellers are able to upload information about a property and list the property for sale. Buyers can search for a property and make an offer. When an offer has been placed on a property the seller should be able to accept or reject the offer.
+﻿# Refactoring Code :
 
-## Test Objectives
+ -  We need to use the Factory pattern to create the builder and Handler class, because at the moment the creation of these class 
+	can be difficult to maintain if we want to expand the website.And it can cause a lot of problem in team environment.
+	The idea is to create an interface to define the mandatory methods to create the class, for example IHttpHandler and IHttpHandlerFactory 
+ -  Implement Builder pattern to create the  modelview
 
-### Objective 1 - Extend an existing feature
+# Update the unit test by using the previous changes
 
-We need you to extend the offer functionality of the web application so that when a seller accepts an offer the buyer that placed the offer can see that their offer has been accepted.
+# Security recommandation:
+	- Dont use cookies to store user's password and consider encrypting information in cookies.
+	- Use error handling. Include a finally block in which you release resources in case of failure
+	- Test size limits of user input before using or storing it
+	- Test the size of the number of queries, if there are unreasonable number o records 
+	- Use the Secure Socket Layer (SSL), if we send sensitive information.
+	- Verify the email when a user register
+	- SQL injection : filter user input by verifying throught validation example: Int32.Parse to verify if its an integer
+	  and apply HTml encoding to string to avoid HTML interpretation
+	- Use Windows event logging and examine the logs frequently for suspicious activity
 
-**User Story:** *As a buyer I want to see when my offer has been accepted so that I can proceed with the property purchase.*
+# Get a Bigger website:
 
-### Objective 2 – Add a new feature
-
-We need you to add the ability for a buyer to book a viewing. It’s unlikely a customer would want to make an offer on a property without booking a viewing.
-
-**User Story:** *As a buyer I want to book a viewing appointment at a property so that I can determine whether I would like to make an offer.*
-
-### Objective 3 - Review the existing code
-
-Write a short review of the existing sample codebase. Let us know what you think is good or bad about it. Feel free to fix any problems and commit these changes to the solution.
-
-#### Deliverables
-
-Your submission should be delivered in as a Visual Studio solution compatible with Visual Studio 2015. The solution should compile. For data persistence please use the existing Entity Framework model with SQL. Feel free to add migrations if you need to. 
-We would prefer that the solution is delivered via GitHub. If you are not able to fork this original repository publically then please fork to a private repository and then provide us with the zip file from the download option in GitHub.
-
-Good luck!
-
-## FAQs
-
-* Should I show my commit history?
-    * Showing your commit history is recommended so that we can see your approach.
-
-* How long should I spend working on the assignment?
-    * You can take as long as you need to complete the assignment. But do remember that this is throwaway code and the aim is to demonstrate your approach rather than build a complete system.
-
-* Do I need to deploy the application?
-    * If you wish to demonstrate your working app then you may deploy it to Azure on a free trial account. This is not mandatory.
+	-Use TDD 
+	-Add Continuous Integration Build to manage the different release
+	-Need to use Deployment tool like Octopus and teamCity
+	-Use Javascript Framework like AngularJs, React.js ..
+	-Move to cloud computing like Azure, to manage the scalability of the website, performance, high availability 
+   -Can use cassandra if we have massive amount of Data
